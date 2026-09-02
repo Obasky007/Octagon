@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OCTAGON - Technology Installation</title>
+    <meta name="description"
+        content="Professional Starlink, smart home, security, and network installations for homes and businesses.">
+    <link rel="icon" type="image/jpeg" href="logo.jpg">
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'ob-deep': '#040810',
+                        'ob-abyss': '#060d1a',
+                        'ob-midnight': '#091528',
+                        'ob-navy': '#0c1d3a',
+                        'ob-steel': '#102547',
+                        'ob-slate': '#162d55',
+                        'ob-accent': '#0a84ff',
+                        'ob-accent-soft': '#3b9eff',
+                        'ob-glow': 'rgba(10,132,255,0.15)',
+                        'ob-glow-strong': 'rgba(10,132,255,0.3)',
+                        'ob-text': '#c8d6e8',
+                        'ob-muted': '#7a92b5',
+                        'ob-dim': '#4a6385',
+                        'ob-border': 'rgba(10,132,255,0.08)',
+                        'ob-border-hover': 'rgba(10,132,255,0.25)',
+                        'ob-silver': '#d0ddf0'
+                    }, fontFamily: { 'heading': ['Space Grotesk', 'sans-serif'], 'body': ['DM Sans', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        /* =========================================================
+           CONFIGURATION — Edit all business information here
+           ========================================================= */
+        const CONFIG = {
+            company: 'OCTAGON',
+            tagline: 'Smart technology. Professional installation.',
+            whatsapp: '+2348131941461',
+            phone: '+2348131941461',
+            email: 'hello@octagon.tech',
+            social: { instagram: '#', facebook: '#', tiktok: '#' },
+            stats: [
+                { value: '50+', label: 'Installations' },
+                { value: 'Professional', label: 'Setup' },
+                { value: 'Homes &', label: 'Businesses' },
+                { value: 'Reliable', label: 'Support' }
+            ],
+            services: [
+                { num: '01', title: 'Starlink Installation', desc: 'Professional Starlink mounting, positioning, setup, and optimization for reliable satellite internet.', img: 'installation.jpg' },
+                { num: '02', title: 'Smart Home', desc: 'Connected lighting, entertainment, automation, and smart devices designed to make modern homes easier to control.', img: 'smarthome.jpg' },
+                { num: '03', title: 'Security & CCTV', desc: 'Modern surveillance and security systems designed to help protect homes and businesses.', img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSibLJmC2IKivr_Jq055aYxe_hJVtt9VrXjziUuua_DJt_4w6kbK1Qm4yOO&s=10' },
+                { num: '04', title: 'Network Solutions', desc: 'Professional Wi-Fi and networking infrastructure designed for stable and reliable connectivity.', img: 'network.jpg' }
+            ],
+            projects: [
+                { title: 'Residential Starlink Installation', subtitle: 'Professional rooftop Starlink installation.', type: 'Starlink', location: 'Residential — Edit Location', desc: 'A professionally mounted Starlink system designed to provide reliable connectivity while maintaining a clean and organized rooftop appearance.', img: 'installation.jpg', imgs: ['installation.jpg', 'installation.jpg'] },
+                { title: 'Smart Home Installation', subtitle: 'Modern connected-home technology setup.', type: 'Smart Home', location: 'Residential — Edit Location', desc: 'Complete smart home system installation including connected lighting, entertainment, and automated device control.', img: 'smarthome.jpg', imgs: ['smarthome.jpg', 'smarthome.jpg'] },
+                { title: 'CCTV Security System', subtitle: 'Professional surveillance installation.', type: 'Security', location: 'Commercial — Edit Location', desc: 'Multi-camera surveillance system installed with professional cable management and remote monitoring capabilities.', img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSibLJmC2IKivr_Jq055aYxe_hJVtt9VrXjziUuua_DJt_4w6kbK1Qm4yOO&s=10', imgs: ['https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSibLJmC2IKivr_Jq055aYxe_hJVtt9VrXjziUuua_DJt_4w6kbK1Qm4yOO&s=10', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSibLJmC2IKivr_Jq055aYxe_hJVtt9VrXjziUuua_DJt_4w6kbK1Qm4yOO&s=10'] },
+                { title: 'Network Infrastructure', subtitle: 'Wi-Fi and networking deployment.', type: 'Network', location: 'Commercial — Edit Location', desc: 'Enterprise-grade Wi-Fi and networking infrastructure designed for full coverage and reliable performance.', img: 'https://picsum.photos/seed/oct-bl-pj4/1000/700.jpg', imgs: ['https://picsum.photos/seed/oct-bl-pj4a/800/500.jpg', 'https://picsum.photos/seed/oct-bl-pj4b/800/500.jpg'] }
+            ],
+            principles: [
+                { num: '01', title: 'Professional Installation', desc: 'Every installation is handled with attention to detail.' },
+                { num: '02', title: 'Clean Finishing', desc: 'Equipment placement and cable management are handled professionally.' },
+                { num: '03', title: 'Reliable Technology', desc: 'Modern technology solutions configured for everyday performance.' },
+                { num: '04', title: 'Customer Support', desc: 'Customers can easily reach Octagon when they need assistance.' }
+            ],
+            steps: [
+                { num: '01', title: 'Tell Us What You Need', desc: 'Contact Octagon and explain what you need.' },
+                { num: '02', title: 'Assessment', desc: 'We understand your space and recommend an appropriate solution.' },
+                { num: '03', title: 'Professional Installation', desc: 'Our team installs, configures, and tests the system.' },
+                { num: '04', title: "You're Connected", desc: 'Enjoy your new technology with confidence.' }
+            ],
+            testimonials: [
+                { quote: 'Octagon installed our Starlink system quickly and professionally. The connection has been reliable since day one.', name: 'Client Name', service: 'Starlink Installation', location: 'Edit Location' },
+                { quote: 'The smart home setup exceeded our expectations. Everything works seamlessly and the installation was clean.', name: 'Client Name', service: 'Smart Home', location: 'Edit Location' },
+                { quote: 'Professional team, clean work, and great communication throughout the entire security system installation.', name: 'Client Name', service: 'CCTV & Security', location: 'Edit Location' },
+                { quote: 'Our network coverage improved dramatically after Octagon restructured our Wi-Fi infrastructure.', name: 'Client Name', service: 'Network Solutions', location: 'Edit Location' }
+            ]
+        };
+
+        /* =========================================================
+           ICONS
+           ========================================================= */
+        const ArrowRight = () => (<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg>);
+        const MenuIcon = () => (<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"><path d="M4 7h16M4 12h16M4 17h16" /></svg>);
+        const CloseIcon = () => (<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"><path d="M18 6 6 18M6 6l12 12" /></svg>);
+        const WaIcon = ({ s = 18 }) => (<svg width={s} height={s} viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z" /></svg>);
+        const PhoneIcon = () => (<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" /></svg>);
+        const MailIcon = () => (<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="16" x="2" y="4" rx="2" /><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" /></svg>);
+        const IgIcon = () => (<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5" /><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" /><line x1="17.5" x2="17.51" y1="6.5" y2="6.5" /></svg>);
+        const FbIcon = () => (<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" /></svg>);
+        const TiktokIcon = () => (<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" /></svg>);
+        const ChevronDown = () => (<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6" /></svg>);
+
+        const waLink = () => `https://wa.me/${CONFIG.whatsapp.replace(/[^0-9]/g, '')}`;
+        const telLink = () => `tel:${CONFIG.phone}`;
+        const mailLink = () => `mailto:${CONFIG.email}`;
+        const quoteWaLink = (form) => {
+            const message = [
+                'Hello OCTAGON, I would like to request a quote.',
+                '',
+                `Name: ${form.name}`,
+                `Phone: ${form.phone}`,
+                `Email: ${form.email}`,
+                `Service required: ${form.service}`,
+                `Location: ${form.location || 'Not provided'}`,
+                `Project details: ${form.message || 'Not provided'}`
+            ].join('\n');
+            return `${waLink()}?text=${encodeURIComponent(message)}`;
+        };
+
+        /* =========================================================
+           HOOKS
+           ========================================================= */
+        function useScrollReveal() {
+            React.useEffect(() => {
+                const obs = new IntersectionObserver((entries) => {
+                    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target) } });
+                }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+                document.querySelectorAll('.sr').forEach(el => obs.observe(el));
+                return () => obs.disconnect();
+            });
+        }
+        function useScrollY() {
+            const [y, setY] = React.useState(0);
+            React.useEffect(() => {
+                let raf; const h = () => { cancelAnimationFrame(raf); raf = requestAnimationFrame(() => setY(window.scrollY)) };
+                window.addEventListener('scroll', h, { passive: true }); return () => { window.removeEventListener('scroll', h); cancelAnimationFrame(raf) };
+            }, []); return y;
+        }
+
+        /* =========================================================
+           GRAIN
+           ========================================================= */
+        function Grain({ scrollY }) {
+            return <div className="grain" style={{ transform: `translate(${scrollY * -0.01}px,${scrollY * -0.01}px)` }} />;
+        }
+
+        /* =========================================================
+           NAVBAR
+           ========================================================= */
+        function Navbar({ scrolled, onQuote, onMenuToggle }) {
+            const links = [{ label: 'Home', href: '#hero' }, { label: 'Services', href: '#services' }, { label: 'Projects', href: '#projects' }, { label: 'About', href: '#about' }, { label: 'Contact', href: '#contact' }];
+            return (
+                <header className={`fixed top-0 left-0 right-0 z-[8000] transition-all duration-500 ${scrolled ? 'nav-glass py-4' : 'py-6'}`}>
+                    <div className="max-w-[1400px] mx-auto px-6 flex items-center justify-between">
+                        <a href="#hero" className="flex items-center gap-2 sm:gap-3 no-underline" aria-label="OCTAGON home">
+                            <img src="logo.jpg" alt="OCTAGON logo" className="brand-logo navbar-logo" />
+                            <span className="brand-wordmark">OCTAGON</span>
+                        </a>
+                        <nav className="hidden lg:flex items-center gap-8">
+                            {links.map(l => (<a key={l.href} href={l.href} className="font-body text-sm text-ob-muted hover:text-white transition-colors duration-300 no-underline tracking-wide">{l.label}</a>))}
+                        </nav>
+                        <div className="hidden lg:block">
+                            <button onClick={onQuote} className="btn-p text-xs">REQUEST A QUOTE <ArrowRight /></button>
+                        </div>
+                        <button onClick={onMenuToggle} className="lg:hidden text-white p-1" aria-label="Open menu"><MenuIcon /></button>
+                    </div>
+                </header>
+            );
+        }
+
+        /* =========================================================
+           MOBILE MENU
+           ========================================================= */
+        function MobileMenu({ onClose, onQuote }) {
+            const links = [{ label: 'Home', href: '#hero' }, { label: 'Services', href: '#services' }, { label: 'Projects', href: '#projects' }, { label: 'About', href: '#about' }, { label: 'Contact', href: '#contact' }];
+            const handleClick = (href) => { onClose(); setTimeout(() => { document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' }) }, 100) };
+            return (
+                <div className="mobile-menu">
+                    <button onClick={onClose} className="absolute top-6 right-6 text-white p-1" aria-label="Close menu"><CloseIcon /></button>
+                    {links.map(l => (<a key={l.href} href={l.href} onClick={(e) => { e.preventDefault(); handleClick(l.href) }} className="font-heading text-3xl font-semibold text-white no-underline hover:text-ob-accent transition-colors">{l.label}</a>))}
+                    <div className="flex flex-col gap-4 mt-4">
+                        <button onClick={() => { onClose(); onQuote() }} className="btn-p justify-center">REQUEST A QUOTE <ArrowRight /></button>
+                        <a href={waLink()} target="_blank" rel="noopener" className="btn-wa justify-center">CHAT ON WHATSAPP <WaIcon /></a>
+                    </div>
+                </div>
+            );
+        }
+
+        /* =========================================================
+           HERO
+           ========================================================= */
+        function Hero({ scrollY, onQuote }) {
+            const py = scrollY * 0.25;
+            return (
+                <section id="hero" className="hero-section relative w-full min-h-screen overflow-hidden bg-ob-deep">
+                    <div className="hero-atmosphere absolute inset-0" />
+                    <div className="hero-grid absolute inset-0" />
+
+                    <div className="hero-layout relative z-10 max-w-[1400px] mx-auto px-6">
+                        <div className="hero-copy">
+                            <p className="hero-anim-1 font-body text-xs tracking-[0.25em] text-ob-accent uppercase mb-5">OCTAGON / TECHNOLOGY INSTALLATION</p>
+                            <h1 className="hero-anim-2 font-heading text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-[0.95] tracking-tight text-white mb-6">
+                                CONNECTED.<br />SMART.<br />SECURE.
+                            </h1>
+                            <p className="hero-anim-3 font-body text-base text-ob-text leading-relaxed mb-10 max-w-lg">
+                                Professional Starlink, smart home, security, and network installations for homes and businesses.
+                            </p>
+                            <p className="hero-anim-3 font-body text-base text-ob-text leading-relaxed mb-10 max-w-lg">
+                                Connectivity • Networking • Infrastructure
+                            </p>
+                            <div className="hero-anim-4 flex flex-wrap gap-4">
+                                <button onClick={onQuote} className="btn-p">REQUEST A QUOTE <ArrowRight /></button>
+                                <a href="#services" className="btn-s">EXPLORE SERVICES <ArrowRight /></a>
+                            </div>
+                        </div>
+
+                        <div className="hero-media" style={{ transform: `translateY(${py}px)` }}>
+                            <img src="hero.png" alt="Starlink dish" className="hero-dish-image" loading="eager" />
+                            <div className="hero-media-tint" />
+                        </div>
+                    </div>
+
+                    <div className="hero-bottom-fade absolute inset-x-0 bottom-0 h-32 z-10" />
+
+                    <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 scroll-ind">
+                        <span className="font-body text-[10px] tracking-[0.2em] text-ob-dim uppercase">Scroll</span>
+                        <ChevronDown />
+                    </div>
+                </section>
+            );
+        }
+
+        /* =========================================================
+           TRUST STRIP
+           ========================================================= */
+        function TrustStrip() {
+            return (
+                <section className="bg-ob-abyss py-16 md:py-20 border-t border-b border-ob-border relative overflow-hidden">
+                    <div className="blue-glow -left-48 top-1/2 -translate-y-1/2 opacity-50" />
+                    <div className="max-w-[1400px] mx-auto px-6 relative z-10">
+                        <div className="text-center max-w-2xl mx-auto mb-14">
+                            <h2 className="sr font-heading text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-white mb-5">
+                                PROFESSIONAL TECHNOLOGY.<br className="hidden sm:block" /> PROPERLY INSTALLED.
+                            </h2>
+                            <p className="sr sr-d1 font-body text-ob-text leading-relaxed text-sm sm:text-base">
+                                From connectivity and security to smart-home systems, Octagon delivers professional installations designed for reliability, clean finishing, and everyday performance.
+                            </p>
+                        </div>
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+                            {CONFIG.stats.map((s, i) => (
+                                <div key={i} className={`sr sr-d${i + 1} text-center`}>
+                                    <p className="font-heading text-3xl sm:text-4xl font-bold text-ob-accent mb-1">{s.value}</p>
+                                    <p className="font-body text-sm text-ob-muted tracking-wide uppercase">{s.label}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+            );
+        }
+
+        /* =========================================================
+           SERVICES
+           ========================================================= */
+        function Services() {
+            return (
+                <section id="services" className="bg-ob-deep py-20 md:py-28 relative overflow-hidden">
+                    <div className="blue-glow right-0 top-0 opacity-30" />
+                    <div className="max-w-[1400px] mx-auto px-6 relative z-10">
+                        <div className="max-w-2xl mb-14 md:mb-20">
+                            <p className="sr font-body text-xs tracking-[0.25em] text-ob-accent uppercase mb-4">WHAT WE DO</p>
+                            <h2 className="sr sr-d1 font-heading text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-white mb-5">
+                                Technology That Works Around You.
+                            </h2>
+                            <p className="sr sr-d2 font-body text-ob-text leading-relaxed text-sm sm:text-base">
+                                From reliable internet connectivity to intelligent home automation and security, we install technology designed around the way you live and work.
+                            </p>
+                        </div>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                            {CONFIG.services.map((s, i) => (
+                                <div key={i} className={`sr sr-d${i + 1} svc-card bg-ob-abyss border border-ob-border overflow-hidden cursor-pointer group`}>
+                                    <div className="overflow-hidden aspect-[4/3]">
+                                        <img src={s.img} alt={s.title} className="svc-img w-full h-full object-cover transition-transform duration-700" loading="lazy" />
+                                    </div>
+                                    <div className="p-6">
+                                        <span className="svc-num font-heading text-xs text-ob-dim tracking-widest transition-colors duration-300">{s.num}</span>
+                                        <h3 className="font-heading text-lg font-semibold text-white mt-2 mb-3 tracking-tight">{s.title}</h3>
+                                        <p className="font-body text-sm text-ob-text leading-relaxed mb-5">{s.desc}</p>
+                                        <div className="flex items-center gap-1 text-ob-dim svc-arrow transition-all duration-300">
+                                            <span className="font-body text-xs tracking-wider uppercase">Learn more</span>
+                                            <ArrowRight />
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+            );
+        }
+
+        /* =========================================================
+           PROJECT MODAL
+           ========================================================= */
+        function ProjectModal({ project, onClose }) {
+            React.useEffect(() => { document.body.style.overflow = 'hidden'; const h = (e) => { if (e.key === 'Escape') onClose() }; window.addEventListener('keydown', h); return () => { document.body.style.overflow = ''; window.removeEventListener('keydown', h) } }, [onClose]);
+            if (!project) return null;
+            return (
+                <div className="modal-bg" onClick={(e) => { if (e.target === e.currentTarget) onClose() }}>
+                    <div className="modal-content w-full max-w-4xl max-h-[90vh] overflow-y-auto bg-ob-midnight border border-ob-border">
+                        <div className="relative">
+                            <img src={project.img} alt={project.title} className="w-full aspect-[16/10] object-cover" />
+                            <button onClick={onClose} className="absolute top-4 right-4 w-10 h-10 bg-ob-deep/70 backdrop-blur-sm flex items-center justify-center text-white hover:bg-ob-deep/90 transition-colors border border-ob-border" aria-label="Close"><CloseIcon /></button>
+                        </div>
+                        <div className="p-6 md:p-10">
+                            <div className="flex flex-wrap gap-3 mb-4">
+                                <span className="font-body text-[10px] tracking-[0.2em] text-ob-accent uppercase bg-ob-glow px-3 py-1.5 border border-ob-border-hover">{project.type}</span>
+                                <span className="font-body text-[10px] tracking-[0.2em] text-ob-muted uppercase border border-ob-border px-3 py-1.5">{project.location}</span>
+                            </div>
+                            <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-semibold text-white tracking-tight mb-4">{project.title}</h2>
+                            <p className="font-body text-ob-text leading-relaxed mb-8">{project.desc}</p>
+                            {project.imgs && project.imgs.length > 0 && (
+                                <>
+                                    <p className="font-body text-xs tracking-[0.2em] text-ob-dim uppercase mb-4">Additional Images</p>
+                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+                                        {project.imgs.map((img, i) => (<img key={i} src={img} alt={`${project.title} detail ${i + 1}`} className="w-full aspect-[16/10] object-cover border border-ob-border" loading="lazy" />))}
+                                    </div>
+                                </>
+                            )}
+                            <div className="flex flex-wrap gap-4">
+                                <a href="#contact" onClick={onClose} className="btn-p text-xs">REQUEST SIMILAR <ArrowRight /></a>
+                                <a href={waLink()} target="_blank" rel="noopener" className="btn-wa text-xs">CHAT ON WHATSAPP <WaIcon s={14} /></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+
+        /* =========================================================
+           PROJECTS
+           ========================================================= */
+        function Projects({ onProjectClick }) {
+            return (
+                <section id="projects" className="bg-ob-abyss py-20 md:py-28 relative overflow-hidden">
+                    <div className="blue-glow -right-32 bottom-0 opacity-40" />
+                    <div className="max-w-[1400px] mx-auto px-6 relative z-10">
+                        <div className="max-w-2xl mb-14 md:mb-20">
+                            <p className="sr font-body text-xs tracking-[0.25em] text-ob-accent uppercase mb-4">SELECTED INSTALLATIONS</p>
+                            <h2 className="sr sr-d1 font-heading text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-white mb-5">
+                                Installed With Precision.
+                            </h2>
+                            <p className="sr sr-d2 font-body text-ob-text leading-relaxed text-sm sm:text-base">
+                                A look at the technology solutions Octagon installs for homes and businesses.
+                            </p>
+                        </div>
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5">
+                            <div className={`sr md:col-span-2 proj-card aspect-[16/10] md:aspect-[2/1]`} onClick={() => onProjectClick(CONFIG.projects[0])}>
+                                <img src={CONFIG.projects[0].img} alt={CONFIG.projects[0].title} className="proj-img absolute inset-0 w-full h-full object-cover" loading="lazy" />
+                                <div className="proj-ov absolute inset-0 bg-gradient-to-t from-ob-deep/90 via-ob-navy/40 to-transparent" />
+                                <div className="proj-info absolute bottom-0 left-0 right-0 p-6 md:p-8">
+                                    <div className="proj-line h-[2px] bg-ob-accent w-12 mb-4" />
+                                    <p className="font-body text-[10px] tracking-[0.2em] text-ob-accent uppercase mb-2">{CONFIG.projects[0].type}</p>
+                                    <h3 className="font-heading text-xl sm:text-2xl font-semibold text-white tracking-tight mb-1">{CONFIG.projects[0].title}</h3>
+                                    <p className="font-body text-sm text-ob-text">{CONFIG.projects[0].subtitle}</p>
+                                </div>
+                            </div>
+                            <div className={`sr sr-d1 proj-card aspect-[4/5] md:aspect-auto md:row-span-2`} onClick={() => onProjectClick(CONFIG.projects[1])}>
+                                <img src={CONFIG.projects[1].img} alt={CONFIG.projects[1].title} className="proj-img absolute inset-0 w-full h-full object-cover" loading="lazy" />
+                                <div className="proj-ov absolute inset-0 bg-gradient-to-t from-ob-deep/90 via-ob-navy/40 to-transparent" />
+                                <div className="proj-info absolute bottom-0 left-0 right-0 p-6">
+                                    <div className="proj-line h-[2px] bg-ob-accent w-12 mb-4" />
+                                    <p className="font-body text-[10px] tracking-[0.2em] text-ob-accent uppercase mb-2">{CONFIG.projects[1].type}</p>
+                                    <h3 className="font-heading text-lg font-semibold text-white tracking-tight mb-1">{CONFIG.projects[1].title}</h3>
+                                    <p className="font-body text-sm text-ob-text">{CONFIG.projects[1].subtitle}</p>
+                                </div>
+                            </div>
+                            <div className={`sr sr-d2 proj-card aspect-[16/10]`} onClick={() => onProjectClick(CONFIG.projects[2])}>
+                                <img src={CONFIG.projects[2].img} alt={CONFIG.projects[2].title} className="proj-img absolute inset-0 w-full h-full object-cover" loading="lazy" />
+                                <div className="proj-ov absolute inset-0 bg-gradient-to-t from-ob-deep/90 via-ob-navy/40 to-transparent" />
+                                <div className="proj-info absolute bottom-0 left-0 right-0 p-6">
+                                    <div className="proj-line h-[2px] bg-ob-accent w-12 mb-4" />
+                                    <p className="font-body text-[10px] tracking-[0.2em] text-ob-accent uppercase mb-2">{CONFIG.projects[2].type}</p>
+                                    <h3 className="font-heading text-lg font-semibold text-white tracking-tight mb-1">{CONFIG.projects[2].title}</h3>
+                                    <p className="font-body text-sm text-ob-text">{CONFIG.projects[2].subtitle}</p>
+                                </div>
+                            </div>
+                            <div className={`sr sr-d3 md:col-span-2 proj-card aspect-[16/10] md:aspect-[2/1]`} onClick={() => onProjectClick(CONFIG.projects[3])}>
+                                <img src={CONFIG.projects[3].img} alt={CONFIG.projects[3].title} className="proj-img absolute inset-0 w-full h-full object-cover" loading="lazy" />
+                                <div className="proj-ov absolute inset-0 bg-gradient-to-t from-ob-deep/90 via-ob-navy/40 to-transparent" />
+                                <div className="proj-info absolute bottom-0 left-0 right-0 p-6 md:p-8">
+                                    <div className="proj-line h-[2px] bg-ob-accent w-12 mb-4" />
+                                    <p className="font-body text-[10px] tracking-[0.2em] text-ob-accent uppercase mb-2">{CONFIG.projects[3].type}</p>
+                                    <h3 className="font-heading text-xl sm:text-2xl font-semibold text-white tracking-tight mb-1">{CONFIG.projects[3].title}</h3>
+                                    <p className="font-body text-sm text-ob-text">{CONFIG.projects[3].subtitle}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            );
+        }
+
+        /* =========================================================
+           WHY OCTAGON
+           ========================================================= */
+        function WhyOctagon() {
+            return (
+                <section className="bg-ob-midnight py-20 md:py-28 relative overflow-hidden">
+                    <div className="blue-glow left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] opacity-20" />
+                    <div className="absolute inset-0 opacity-[0.02]" style={{ backgroundImage: 'linear-gradient(rgba(10,132,255,.2) 1px,transparent 1px),linear-gradient(90deg,rgba(10,132,255,.2) 1px,transparent 1px)', backgroundSize: '80px 80px' }} />
+                    <div className="absolute top-8 left-8 w-16 h-16 border-t border-l border-ob-border-hover" />
+                    <div className="absolute bottom-8 right-8 w-16 h-16 border-b border-r border-ob-border-hover" />
+                    <div className="absolute top-8 right-8 font-body text-[9px] tracking-[0.3em] text-ob-accent/20 uppercase">Octagon</div>
+
+                    <div className="relative z-10 max-w-[1400px] mx-auto px-6">
+                        <div className="max-w-3xl mb-16 md:mb-20">
+                            <h2 className="sr font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.05]">
+                                MORE THAN INSTALLATION.<br />IT'S PRECISION.
+                            </h2>
+                            <p className="sr sr-d1 font-body text-ob-text leading-relaxed text-sm sm:text-base mt-6 max-w-xl">
+                                Octagon focuses on the complete installation experience — not simply placing equipment. Every detail is considered, from positioning to cable management to final testing.
+                            </p>
+                        </div>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-12">
+                            {CONFIG.principles.map((p, i) => (
+                                <div key={i} className={`sr sr-d${i + 1} group`}>
+                                    <div className="flex items-start gap-5">
+                                        <span className="font-heading text-4xl font-bold text-ob-accent/10 group-hover:text-ob-accent/25 transition-colors duration-500 leading-none mt-1">{p.num}</span>
+                                        <div>
+                                            <h3 className="font-heading text-lg font-semibold text-white tracking-tight mb-2">{p.title}</h3>
+                                            <p className="font-body text-sm text-ob-text leading-relaxed">{p.desc}</p>
+                                        </div>
+                                    </div>
+                                    {i < CONFIG.principles.length - 1 && <div className="ml-[52px] mt-6 h-px bg-ob-border" />}
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+            );
+        }
+
+        /* =========================================================
+           HOW IT WORKS
+           ========================================================= */
+        function HowItWorks() {
+            React.useEffect(() => {
+                const obs = new IntersectionObserver((entries) => {
+                    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target) } });
+                }, { threshold: 0.3 });
+                document.querySelectorAll('.step-line,.step-item').forEach(el => obs.observe(el));
+                return () => obs.disconnect();
+            }, []);
+            return (
+                <section className="bg-ob-deep py-20 md:py-28 relative overflow-hidden">
+                    <div className="blue-glow right-0 top-1/3 opacity-25" />
+                    <div className="max-w-[1400px] mx-auto px-6 relative z-10">
+                        <div className="text-center max-w-2xl mx-auto mb-16 md:mb-20">
+                            <h2 className="sr font-heading text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-white mb-5">
+                                From Idea to Installation.
+                            </h2>
+                        </div>
+                        <div className="relative">
+                            <div className="step-line hidden md:block absolute top-8 left-[12.5%] right-[12.5%] z-0" />
+                            <div className="grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-6 relative z-10">
+                                {CONFIG.steps.map((s, i) => (
+                                    <div key={i} className="step-item sr text-center md:text-left" style={{ transitionDelay: `${i * 0.15}s` }}>
+                                        <div className="flex flex-col items-center md:items-start gap-4">
+                                            <div className="w-16 h-16 rounded-full border border-ob-border-hover bg-ob-abyss flex items-center justify-center shrink-0 relative">
+                                                <span className="font-heading text-sm font-semibold text-ob-accent">{s.num}</span>
+                                                <div className="absolute inset-0 rounded-full border border-ob-accent/20" style={{ animation: 'glowPulse 3s ease-in-out infinite', animationDelay: `${i * 0.5}s` }} />
+                                            </div>
+                                            <div>
+                                                <h3 className="font-heading text-base sm:text-lg font-semibold text-white tracking-tight mb-2">{s.title}</h3>
+                                                <p className="font-body text-sm text-ob-text leading-relaxed">{s.desc}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            );
+        }
+
+        /* =========================================================
+           ABOUT
+           ========================================================= */
+        function About() {
+            return (
+                <section id="about" className="bg-ob-abyss py-20 md:py-28 relative overflow-hidden">
+                    <div className="blue-glow left-0 top-0 opacity-30" />
+                    <div className="max-w-[1400px] mx-auto px-6 relative z-10">
+                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+                            <div className="sr relative overflow-hidden aspect-[4/5] lg:aspect-auto lg:h-[560px] border border-ob-border">
+                                <img src="togetherness.jpg" alt="Professional technician working on a technology installation" className="w-full h-full object-cover" loading="lazy" />
+                                <div className="absolute inset-0 bg-gradient-to-t from-ob-deep/40 to-transparent" />
+                                <div className="absolute inset-0 bg-gradient-to-r from-ob-accent/5 to-transparent" />
+                            </div>
+                            <div>
+                                <p className="sr font-body text-xs tracking-[0.25em] text-ob-accent uppercase mb-4">THE OCTAGON STANDARD</p>
+                                <h2 className="sr sr-d1 font-heading text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-white mb-6 leading-[1.1]">
+                                    Technology Should Feel Effortless.
+                                </h2>
+                                <p className="sr sr-d2 font-body text-ob-text leading-relaxed text-sm sm:text-base mb-5">
+                                    Great technology is more than the equipment itself. It's about professional installation, thoughtful setup, reliable performance, and an experience customers can trust.
+                                </p>
+                                <p className="sr sr-d3 font-body text-ob-text leading-relaxed text-sm sm:text-base mb-8">
+                                    Octagon was built on the belief that technology installations should be handled with the same precision and care as the technology itself. Every mount, every cable, every configuration — done right.
+                                </p>
+                                <div className="sr sr-d4">
+                                    <a href="#contact" className="btn-s text-xs">LEARN MORE ABOUT OCTAGON <ArrowRight /></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            );
+        }
+
+        /* =========================================================
+           TESTIMONIALS
+           ========================================================= */
+        function Testimonials() {
+            const [active, setActive] = React.useState(0);
+            const trackRef = React.useRef(null);
+            const dragRef = React.useRef({ on: false, sx: 0, ct: 0, st: 0 });
+            const timerRef = React.useRef(null);
+
+            const cw = () => { if (!trackRef.current) return 400; const c = trackRef.current.children[0]; return c ? (c.offsetWidth + 24) : 400 };
+            const go = (idx) => { setActive(Math.max(0, Math.min(idx, CONFIG.testimonials.length - 1))) };
+            const next = () => go(active + 1 > CONFIG.testimonials.length - 1 ? 0 : active + 1);
+
+            React.useEffect(() => { timerRef.current = setInterval(next, 5000); return () => clearInterval(timerRef.current) }, [active]);
+
+            const onDS = (e) => { clearInterval(timerRef.current); const cx = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX; dragRef.current = { on: true, sx: cx, ct: -active * cw(), st: -active * cw() }; if (trackRef.current) trackRef.current.style.transition = 'none' };
+            const onDM = (e) => { if (!dragRef.current.on) return; const cx = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX; dragRef.current.ct = dragRef.current.st + (cx - dragRef.current.sx); if (trackRef.current) trackRef.current.style.transform = `translateX(${dragRef.current.ct}px)` };
+            const onDE = () => { if (!dragRef.current.on) return; dragRef.current.on = false; if (trackRef.current) trackRef.current.style.transition = 'transform .6s cubic-bezier(.25,.46,.45,.94)'; const d = dragRef.current.ct - dragRef.current.st; if (d < -60) go(active + 1); else if (d > 60) go(active - 1); else go(active); timerRef.current = setInterval(next, 5000) };
+
+            return (
+                <section className="bg-ob-midnight py-20 md:py-28 overflow-hidden relative">
+                    <div className="blue-glow left-1/4 top-0 opacity-25" />
+                    <div className="max-w-[1400px] mx-auto px-6 mb-12 md:mb-16 relative z-10">
+                        <p className="sr font-body text-xs tracking-[0.25em] text-ob-accent uppercase mb-4">CLIENT EXPERIENCE</p>
+                        <h2 className="sr sr-d1 font-heading text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-white">
+                            What Our Clients Say.
+                        </h2>
+                    </div>
+                    <div className="sr sr-d2 pl-6 md:pl-[calc((100vw-1400px)/2+24px)] overflow-hidden relative z-10"
+                        onMouseDown={onDS} onMouseMove={onDM} onMouseUp={onDE} onMouseLeave={onDE}
+                        onTouchStart={onDS} onTouchMove={onDM} onTouchEnd={onDE}>
+                        <div className="test-track" ref={trackRef} style={{ transform: `translateX(${-active * cw()}px)` }}>
+                            {CONFIG.testimonials.map((t, i) => (
+                                <div key={i} className="shrink-0 w-[300px] sm:w-[360px] md:w-[420px] bg-ob-navy border border-ob-border p-6 md:p-8 flex flex-col justify-between min-h-[220px]">
+                                    <p className="font-body text-sm text-ob-text leading-relaxed mb-6 italic">"{t.quote}"</p>
+                                    <div>
+                                        <p className="font-heading text-sm font-semibold text-white">{t.name}</p>
+                                        <p className="font-body text-xs text-ob-dim mt-1">{t.service} — {t.location}</p>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                    <div className="flex items-center justify-center gap-2 mt-8 relative z-10">
+                        {CONFIG.testimonials.map((_, i) => (
+                            <button key={i} onClick={() => go(i)} className={`h-2 rounded-full transition-all duration-300 ${i === active ? 'bg-ob-accent w-6' : 'bg-ob-border-hover w-2 hover:bg-ob-accent/40'}`} aria-label={`Go to testimonial ${i + 1}`} />
+                        ))}
+                    </div>
+                </section>
+            );
+        }
+
+        /* =========================================================
+           FINAL CTA
+           ========================================================= */
+        function FinalCTA({ onQuote }) {
+            return (
+                <section className="relative py-28 md:py-36 overflow-hidden">
+                    <img src="https://picsum.photos/seed/oct-bl-cta-home/1920/800.jpg" alt="Modern home with technology installation" className="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+                    <div className="absolute inset-0 bg-ob-deep/80" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-ob-deep/70 via-ob-navy/40 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-ob-deep via-transparent to-ob-deep/50" />
+                    <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full opacity-30" style={{ background: 'radial-gradient(circle,rgba(10,132,255,.35) 0%,transparent 70%)' }} />
+
+                    <div className="relative z-10 max-w-[1400px] mx-auto px-6 text-center">
+                        <h2 className="sr font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-5">
+                            READY TO UPGRADE YOUR SPACE?
+                        </h2>
+                        <p className="sr sr-d1 font-body text-ob-text leading-relaxed text-sm sm:text-base mb-10 max-w-lg mx-auto">
+                            Tell us what you need and let's build the right technology solution for you.
+                        </p>
+                        <div className="sr sr-d2 flex flex-wrap items-center justify-center gap-4">
+                            <button onClick={onQuote} className="btn-p">REQUEST A QUOTE <ArrowRight /></button>
+                            <a href={waLink()} target="_blank" rel="noopener" className="btn-wa">CHAT ON WHATSAPP <WaIcon /></a>
+                        </div>
+                    </div>
+                </section>
+            );
+        }
+
+        /* =========================================================
+           CONTACT FORM
+           ========================================================= */
+        function ContactForm() {
+            const [form, setForm] = React.useState({ name: '', phone: '', email: '', service: '', location: '', message: '' });
+            const [submitted, setSubmitted] = React.useState(false);
+            const u = (k, v) => setForm(f => ({ ...f, [k]: v }));
+            const handleSubmit = (e) => {
+                e.preventDefault();
+                window.open(quoteWaLink(form), '_blank', 'noopener,noreferrer');
+                setSubmitted(true);
+            };
+            const opts = ['Starlink Installation', 'Smart Home', 'Security & CCTV', 'Network Solutions', 'Home Entertainment', 'Other'];
+
+            return (
+                <section id="contact" className="bg-ob-abyss py-20 md:py-28 relative overflow-hidden">
+                    <div className="blue-glow -left-32 bottom-0 opacity-30" />
+                    <div className="max-w-[1400px] mx-auto px-6 relative z-10">
+                        <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-20">
+                            <div className="lg:col-span-3">
+                                <h2 className="sr font-heading text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-white mb-3">
+                                    Let's Get You Connected.
+                                </h2>
+                                <p className="sr sr-d1 font-body text-ob-text text-sm mb-10">Fill out the form and we'll get back to you promptly.</p>
+
+                                {submitted ? (
+                                    <div className="sr bg-ob-navy border border-ob-border-hover p-8 md:p-12 text-center">
+                                        <div className="w-14 h-14 rounded-full bg-ob-glow flex items-center justify-center mx-auto mb-5 border border-ob-border-hover">
+                                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0a84ff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5" /></svg>
+                                        </div>
+                                        <h3 className="font-heading text-xl font-semibold text-white mb-2">Quote Request Received</h3>
+                                        <p className="font-body text-sm text-ob-text">Thank you. We'll review your request and get back to you soon.</p>
+                                        <button onClick={() => { setSubmitted(false); setForm({ name: '', phone: '', email: '', service: '', location: '', message: '' }) }} className="btn-s text-xs mt-6">SUBMIT ANOTHER REQUEST</button>
+                                    </div>
+                                ) : (
+                                    <form onSubmit={handleSubmit} className="sr sr-d2 space-y-4">
+                                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                            <input type="text" placeholder="Full Name" required value={form.name} onChange={e => u('name', e.target.value)} className="form-input" />
+                                            <input type="tel" placeholder="Phone Number" required value={form.phone} onChange={e => u('phone', e.target.value)} className="form-input" />
+                                        </div>
+                                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                            <input type="email" placeholder="Email" required value={form.email} onChange={e => u('email', e.target.value)} className="form-input" />
+                                            <select required value={form.service} onChange={e => u('service', e.target.value)} className="form-input appearance-none" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%234a6385' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")`, backgroundRepeat: 'no-repeat', backgroundPosition: 'right 16px center' }}>
+                                                <option value="" disabled style={{ background: '#0c1d3a' }}>Service Required</option>
+                                                {opts.map(s => <option key={s} value={s} style={{ background: '#0c1d3a' }}>{s}</option>)}
+                                            </select>
+                                        </div>
+                                        <input type="text" placeholder="Location" value={form.location} onChange={e => u('location', e.target.value)} className="form-input" />
+                                        <textarea placeholder="Tell us about your project..." rows="4" value={form.message} onChange={e => u('message', e.target.value)} className="form-input resize-none" />
+                                        <button type="submit" className="btn-p w-full sm:w-auto justify-center">REQUEST MY QUOTE <ArrowRight /></button>
+                                    </form>
+                                )}
+                            </div>
+
+                            <div className="lg:col-span-2">
+                                <p className="sr font-body text-xs tracking-[0.25em] text-ob-accent uppercase mb-8">Direct Contact</p>
+                                <div className="sr sr-d1 space-y-1">
+                                    <a href={waLink()} target="_blank" rel="noopener" className="contact-link group">
+                                        <span className="cl-icon text-ob-dim transition-colors duration-300"><WaIcon s={20} /></span>
+                                        <div><p className="font-heading text-sm font-semibold text-white">WhatsApp</p><p className="font-body text-xs text-ob-text">Chat with Octagon</p></div>
+                                        <span className="cl-arrow ml-auto text-ob-dim opacity-0 transition-all duration-300"><ArrowRight /></span>
+                                    </a>
+                                    <a href={telLink()} className="contact-link group">
+                                        <span className="cl-icon text-ob-dim transition-colors duration-300"><PhoneIcon /></span>
+                                        <div><p className="font-heading text-sm font-semibold text-white">Phone</p><p className="font-body text-xs text-ob-text">Call our team</p></div>
+                                        <span className="cl-arrow ml-auto text-ob-dim opacity-0 transition-all duration-300"><ArrowRight /></span>
+                                    </a>
+                                    <a href={mailLink()} className="contact-link group">
+                                        <span className="cl-icon text-ob-dim transition-colors duration-300"><MailIcon /></span>
+                                        <div><p className="font-heading text-sm font-semibold text-white">Email</p><p className="font-body text-xs text-ob-text">Send an enquiry</p></div>
+                                        <span className="cl-arrow ml-auto text-ob-dim opacity-0 transition-all duration-300"><ArrowRight /></span>
+                                    </a>
+                                </div>
+                                <div className="sr sr-d2 mt-10 p-6 bg-ob-navy border border-ob-border relative overflow-hidden">
+                                    <div className="absolute -right-8 -top-8 w-32 h-32 rounded-full bg-ob-glow opacity-60" />
+                                    <p className="font-body text-xs text-ob-accent uppercase tracking-wider mb-3 relative z-10">Fastest Response</p>
+                                    <a href={waLink()} target="_blank" rel="noopener" className="btn-wa w-full justify-center text-sm relative z-10">
+                                        <WaIcon s={18} /> CHAT ON WHATSAPP
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            );
+        }
+
+        /* =========================================================
+           FOOTER
+           ========================================================= */
+        function Footer({ onQuote }) {
+            const links = [{ label: 'Services', href: '#services' }, { label: 'Projects', href: '#projects' }, { label: 'About', href: '#about' }, { label: 'Contact', href: '#contact' }];
+            return (
+                <footer className="bg-ob-deep border-t border-ob-border pt-16 pb-8">
+                    <div className="max-w-[1400px] mx-auto px-6">
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-14">
+                            <div>
+                                <img src="logo.jpg" alt="OCTAGON logo" className="brand-logo footer-logo mb-3" />
+                                <p className="font-body text-sm text-ob-dim leading-relaxed">{CONFIG.tagline}</p>
+                            </div>
+                            <div>
+                                <p className="font-body text-xs tracking-[0.2em] text-ob-accent/60 uppercase mb-4">Navigation</p>
+                                <div className="flex flex-col gap-2.5">
+                                    {links.map(l => (<a key={l.href} href={l.href} className="font-body text-sm text-ob-muted hover:text-white transition-colors duration-300 no-underline">{l.label}</a>))}
+                                    <a href={waLink()} target="_blank" rel="noopener" className="font-body text-sm text-ob-muted hover:text-white transition-colors duration-300 no-underline">WhatsApp</a>
+                                </div>
+                            </div>
+                            <div>
+                                <p className="font-body text-xs tracking-[0.2em] text-ob-accent/60 uppercase mb-4">Social</p>
+                                <div className="flex gap-3">
+                                    <a href={CONFIG.social.instagram} target="_blank" rel="noopener" className="w-10 h-10 border border-ob-border flex items-center justify-center text-ob-muted hover:text-ob-accent hover:border-ob-border-hover transition-all duration-300" aria-label="Instagram"><IgIcon /></a>
+                                    <a href={CONFIG.social.facebook} target="_blank" rel="noopener" className="w-10 h-10 border border-ob-border flex items-center justify-center text-ob-muted hover:text-ob-accent hover:border-ob-border-hover transition-all duration-300" aria-label="Facebook"><FbIcon /></a>
+                                    <a href={CONFIG.social.tiktok} target="_blank" rel="noopener" className="w-10 h-10 border border-ob-border flex items-center justify-center text-ob-muted hover:text-ob-accent hover:border-ob-border-hover transition-all duration-300" aria-label="TikTok"><TiktokIcon /></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="border-t border-ob-border pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
+                            <p className="font-body text-xs text-ob-dim">&copy; 2026 {CONFIG.company}. All rights reserved.</p>
+                            <button onClick={onQuote} className="font-body text-xs text-ob-muted hover:text-ob-accent transition-colors duration-300 cursor-pointer bg-transparent border-none">Request a Quote</button>
+                        </div>
+                    </div>
+                </footer>
+            );
+        }
+
+        /* =========================================================
+           MOBILE STICKY CTA
+           ========================================================= */
+        function MobileStickyCTA({ visible, onQuote }) {
+            if (!visible) return null;
+            return (
+                <div className="fixed bottom-0 left-0 right-0 z-[7000] bg-ob-deep/95 backdrop-blur-xl border-t border-ob-border-hover px-4 py-3 flex gap-3 lg:hidden" style={{ animation: 'fadeInUp .3s ease both' }}>
+                    <button onClick={onQuote} className="btn-p flex-1 justify-center text-xs py-3">REQUEST A QUOTE</button>
+                    <a href={waLink()} target="_blank" rel="noopener" className="btn-wa flex-1 justify-center text-xs py-3"><WaIcon s={14} /> WHATSAPP</a>
+                </div>
+            );
+        }
+
+        /* =========================================================
+           FLOATING WHATSAPP — DESKTOP
+           ========================================================= */
+        function FloatingWhatsApp() {
+            return (
+                <a href={waLink()} target="_blank" rel="noopener" className="fixed bottom-6 right-6 z-[7000] w-12 h-12 bg-[#25D366] rounded-full flex items-center justify-center text-white shadow-lg shadow-[#25D36633] hover:scale-110 transition-transform duration-300 hidden lg:flex" aria-label="Chat on WhatsApp">
+                    <WaIcon s={22} />
+                </a>
+            );
+        }
+
+        /* =========================================================
+           APP
+           ========================================================= */
+        function App() {
+            const scrollY = useScrollY();
+            const scrolled = scrollY > 60;
+            const [mobileMenu, setMobileMenu] = React.useState(false);
+            const [selectedProject, setSelectedProject] = React.useState(null);
+            const [showMobileCTA, setShowMobileCTA] = React.useState(false);
+            const contactRef = React.useRef(null);
+
+            useScrollReveal();
+
+            React.useEffect(() => { setShowMobileCTA(scrollY > window.innerHeight * 0.8) }, [scrollY]);
+            React.useEffect(() => { document.body.style.overflow = mobileMenu ? 'hidden' : ''; return () => { document.body.style.overflow = '' } }, [mobileMenu]);
+
+            const scrollToContact = () => { contactRef.current?.scrollIntoView({ behavior: 'smooth' }) };
+
+            /* Re-observe after state changes */
+            React.useEffect(() => {
+                const t = setTimeout(() => {
+                    const obs = new IntersectionObserver((entries) => {
+                        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target) } });
+                    }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+                    document.querySelectorAll('.sr:not(.visible)').forEach(el => obs.observe(el));
+                    return () => obs.disconnect();
+                }, 150); return () => clearTimeout(t);
+            });
+
+            return (
+                <>
+                    <Grain scrollY={scrollY} />
+                    <Navbar scrolled={scrolled} onQuote={scrollToContact} onMenuToggle={() => setMobileMenu(true)} />
+                    {mobileMenu && <MobileMenu onClose={() => setMobileMenu(false)} onQuote={() => { setMobileMenu(false); setTimeout(scrollToContact, 100) }} />}
+                    <Hero scrollY={scrollY} onQuote={scrollToContact} />
+                    <TrustStrip />
+                    <Services />
+                    <Projects onProjectClick={setSelectedProject} />
+                    {selectedProject && <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />}
+                    <WhyOctagon />
+                    <HowItWorks />
+                    <About />
+                    <Testimonials />
+                    <FinalCTA onQuote={scrollToContact} />
+                    <div ref={contactRef} />
+                    <ContactForm />
+                    <Footer onQuote={scrollToContact} />
+                    <MobileStickyCTA visible={showMobileCTA} onQuote={scrollToContact} />
+                    <FloatingWhatsApp />
+                </>
+            );
+        }
+
+        ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+    </script>
+</body>
+
+</html>
