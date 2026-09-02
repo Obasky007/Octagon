@@ -391,6 +391,22 @@ body {
     cursor: pointer
 }
 
+.project-click-label {
+    display: none;
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    z-index: 3;
+    padding: 7px 10px;
+    border: 1px solid rgba(10, 132, 255, .45);
+    background: rgba(4, 8, 16, .78);
+    color: #fff;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: .625rem;
+    font-weight: 600;
+    letter-spacing: .16em;
+}
+
 .proj-card .proj-img {
     transition: transform .7s cubic-bezier(.25, .46, .45, .94)
 }
@@ -623,6 +639,19 @@ body {
 }
 
 @media (max-width: 767px) {
+    .project-click-label {
+        display: block;
+    }
+
+    .proj-card .proj-ov {
+        opacity: 1;
+    }
+
+    .proj-card .proj-info {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
     .brand-logo {
         width: 50px;
         border-radius: 6px;
