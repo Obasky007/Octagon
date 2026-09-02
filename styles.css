@@ -131,19 +131,19 @@ body {
 }
 
 .hero-anim-1 {
-    animation: fadeInUp .8s .3s both cubic-bezier(.25, .46, .45, .94)
+    animation: fadeInUp .8s .1s both cubic-bezier(.25, .46, .45, .94)
 }
 
 .hero-anim-2 {
-    animation: fadeInUp .8s .5s both cubic-bezier(.25, .46, .45, .94)
+    animation: fadeInUp .8s .2s both cubic-bezier(.25, .46, .45, .94)
 }
 
 .hero-anim-3 {
-    animation: fadeInUp .8s .7s both cubic-bezier(.25, .46, .45, .94)
+    animation: fadeInUp .8s .3s both cubic-bezier(.25, .46, .45, .94)
 }
 
 .hero-anim-4 {
-    animation: fadeInUp .8s .9s both cubic-bezier(.25, .46, .45, .94)
+    animation: fadeInUp .8s .4s both cubic-bezier(.25, .46, .45, .94)
 }
 
 .hero-section {
@@ -639,6 +639,26 @@ body {
 }
 
 @media (max-width: 767px) {
+    .hero-media {
+        transform: none !important;
+    }
+
+    .hero-anim-4 {
+        flex-wrap: nowrap;
+        gap: .5rem;
+    }
+
+    .hero-anim-4 .btn-p,
+    .hero-anim-4 .btn-s {
+        min-width: 0;
+        flex: 1 1 0;
+        justify-content: center;
+        padding: 12px 8px;
+        font-size: .65rem;
+        gap: 4px;
+        white-space: nowrap;
+    }
+
     .project-click-label {
         display: block;
     }
