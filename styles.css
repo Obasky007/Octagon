@@ -80,6 +80,61 @@ body {
     transition: transform .05s linear
 }
 
+.starfield {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    overflow: hidden;
+    pointer-events: none;
+    opacity: .42;
+    background: radial-gradient(ellipse at 50% 0%, rgba(10, 132, 255, .06), transparent 52%);
+}
+
+.star {
+    position: absolute;
+    top: var(--star-y);
+    left: var(--star-x);
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: #9dceff;
+    box-shadow: 0 0 10px 2px rgba(10, 132, 255, .65);
+    filter: blur(1.2px);
+    opacity: .35;
+    animation: starFlight var(--star-duration) linear var(--star-delay) infinite;
+}
+
+.star:nth-child(3n) {
+    width: 5px;
+    height: 5px;
+    opacity: .22;
+    filter: blur(2px);
+}
+
+.star:nth-child(4n) {
+    width: 2px;
+    height: 2px;
+    opacity: .5;
+    filter: blur(.8px);
+}
+
+@keyframes starFlight {
+    0% {
+        transform: translate3d(-12vw, 8vh, 0);
+        opacity: 0
+    }
+
+    12%,
+    78% {
+        opacity: .45
+    }
+
+    100% {
+        transform: translate3d(12vw, -10vh, 0);
+        opacity: 0
+    }
+}
+
 @keyframes scrollPulse {
 
     0%,
@@ -271,10 +326,6 @@ body {
     }
 }
 
-.scroll-ind {
-    animation: scrollPulse 2.2s ease-in-out infinite
-}
-
 .btn-p {
     background: #0a84ff;
     color: #fff;
@@ -452,6 +503,10 @@ body {
     border-bottom: 1px solid rgba(10, 132, 255, .08)
 }
 
+.nav-border {
+    border-bottom: 1px solid rgba(10, 132, 255, .13);
+}
+
 .test-track {
     display: flex;
     gap: 24px;
@@ -582,10 +637,6 @@ body {
         animation: none;
     }
 
-    .scroll-ind {
-        animation: none
-    }
-
     .svc-card,
     .proj-card,
     .proj-img,
@@ -602,6 +653,10 @@ body {
     }
 
     .grain {
+        display: none
+    }
+
+    .starfield {
         display: none
     }
 }
@@ -639,6 +694,22 @@ body {
 }
 
 @media (max-width: 767px) {
+    .project-modal-actions {
+        flex-wrap: nowrap;
+        gap: .5rem;
+    }
+
+    .project-modal-actions .btn-p,
+    .project-modal-actions .btn-wa {
+        min-width: 0;
+        flex: 1 1 0;
+        justify-content: center;
+        padding: 12px 8px;
+        font-size: .65rem;
+        gap: 4px;
+        white-space: nowrap;
+    }
+
     .hero-media {
         transform: none !important;
     }

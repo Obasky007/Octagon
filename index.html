@@ -159,13 +159,28 @@
             return <div className="grain" style={{ transform: `translate(${scrollY * -0.01}px,${scrollY * -0.01}px)` }} />;
         }
 
+        function Starfield() {
+            const stars = [
+                ['8%', '18%', '18s', '0s'], ['21%', '72%', '24s', '-9s'], ['34%', '34%', '20s', '-14s'],
+                ['47%', '86%', '28s', '-4s'], ['59%', '14%', '22s', '-17s'], ['72%', '64%', '26s', '-11s'],
+                ['86%', '28%', '19s', '-6s'], ['94%', '82%', '30s', '-21s'], ['14%', '46%', '25s', '-2s'],
+                ['63%', '45%', '23s', '-12s'], ['78%', '91%', '27s', '-18s'], ['40%', '7%', '21s', '-8s'],
+                ['3%', '93%', '29s', '-15s'], ['53%', '57%', '24s', '-19s'], ['91%', '51%', '20s', '-3s']
+            ];
+            return (
+                <div className="starfield" aria-hidden="true">
+                    {stars.map((star, i) => <span key={i} className="star" style={{ '--star-x': star[0], '--star-y': star[1], '--star-duration': star[2], '--star-delay': star[3] }} />)}
+                </div>
+            );
+        }
+
         /* =========================================================
            NAVBAR
            ========================================================= */
         function Navbar({ scrolled, onQuote, onMenuToggle }) {
             const links = [{ label: 'Home', href: '#hero' }, { label: 'Services', href: '#services' }, { label: 'Projects', href: '#projects' }, { label: 'About', href: '#about' }, { label: 'Contact', href: '#contact' }];
             return (
-                <header className={`fixed top-0 left-0 right-0 z-[8000] transition-all duration-500 ${scrolled ? 'nav-glass py-4' : 'py-6'}`}>
+                <header className={`fixed top-0 left-0 right-0 z-[8000] nav-border transition-all duration-500 ${scrolled ? 'nav-glass py-4' : 'py-6'}`}>
                     <div className="max-w-[1400px] mx-auto px-6 flex items-center justify-between">
                         <a href="#hero" className="flex items-center gap-2 sm:gap-3 no-underline" aria-label="OCTAGON home">
                             <img src="logo.jpg" alt="OCTAGON logo" className="brand-logo navbar-logo" />
@@ -237,10 +252,6 @@
 
                     <div className="hero-bottom-fade absolute inset-x-0 bottom-0 h-32 z-10" />
 
-                    <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 scroll-ind">
-                        <span className="font-body text-[10px] tracking-[0.2em] text-ob-dim uppercase">Scroll</span>
-                        <ChevronDown />
-                    </div>
                 </section>
             );
         }
@@ -301,10 +312,10 @@
                                         <span className="svc-num font-heading text-xs text-ob-dim tracking-widest transition-colors duration-300">{s.num}</span>
                                         <h3 className="font-heading text-lg font-semibold text-white mt-2 mb-3 tracking-tight">{s.title}</h3>
                                         <p className="font-body text-sm text-ob-text leading-relaxed mb-5">{s.desc}</p>
-                                        <div className="flex items-center gap-1 text-ob-dim svc-arrow transition-all duration-300">
+                                        <a href="#contact" className="flex items-center gap-1 text-ob-dim svc-arrow transition-all duration-300 no-underline">
                                             <span className="font-body text-xs tracking-wider uppercase">Learn more</span>
                                             <ArrowRight />
-                                        </div>
+                                        </a>
                                     </div>
                                 </div>
                             ))}
@@ -342,7 +353,7 @@
                                     </div>
                                 </>
                             )}
-                            <div className="flex flex-wrap gap-4">
+                            <div className="project-modal-actions flex flex-wrap gap-4">
                                 <a href="#contact" onClick={onClose} className="btn-p text-xs">REQUEST SIMILAR <ArrowRight /></a>
                                 <a href={waLink(`Hello OCTAGON, I am interested in a project similar to ${project.title}. Please share more details.`)} target="_blank" rel="noopener" className="btn-wa text-xs">CHAT ON WHATSAPP <WaIcon s={14} /></a>
                             </div>
@@ -800,6 +811,7 @@
             return (
                 <>
                     <Grain scrollY={scrollY} />
+                    <Starfield />
                     <Navbar scrolled={scrolled} onQuote={scrollToContact} onMenuToggle={() => setMobileMenu(true)} />
                     {mobileMenu && <MobileMenu onClose={() => setMobileMenu(false)} onQuote={() => { setMobileMenu(false); setTimeout(scrollToContact, 100) }} />}
                     <Hero scrollY={scrollY} onQuote={scrollToContact} />
