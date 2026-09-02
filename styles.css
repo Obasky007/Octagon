@@ -94,30 +94,31 @@ body {
     position: absolute;
     top: var(--star-y);
     left: var(--star-x);
-    width: 7px;
-    height: 7px;
-    background: #eaf6ff;
-    clip-path: polygon(50% 0%, 61% 39%, 100% 50%, 61% 61%, 50% 100%, 39% 61%, 0% 50%, 39% 39%);
-    box-shadow: 0 0 12px 3px rgba(10, 132, 255, .72);
+    width: 54px;
+    height: 6px;
+    background: linear-gradient(90deg, transparent 0%, rgba(10, 132, 255, .25) 55%, #9dceff 88%, #fff 100%);
+    clip-path: polygon(0 50%, 72% 32%, 91% 34%, 100% 0%, 96% 50%, 100% 100%, 91% 66%, 72% 68%);
+    transform: rotate(45deg);
+    filter: drop-shadow(0 0 7px rgba(10, 132, 255, .8));
     opacity: .56;
     animation: starFlight var(--star-duration) linear var(--star-delay) infinite;
 }
 
 .star:nth-child(3n) {
-    width: 11px;
-    height: 11px;
+    width: 72px;
+    height: 7px;
     opacity: .38;
 }
 
 .star:nth-child(4n) {
-    width: 5px;
-    height: 5px;
+    width: 38px;
+    height: 4px;
     opacity: .72;
 }
 
 @keyframes starFlight {
     0% {
-        transform: translate3d(-12vw, 8vh, 0);
+        transform: translate3d(-24vw, -24vh, 0) rotate(45deg);
         opacity: 0
     }
 
@@ -127,7 +128,7 @@ body {
     }
 
     100% {
-        transform: translate3d(12vw, -10vh, 0);
+        transform: translate3d(34vw, 34vh, 0) rotate(45deg);
         opacity: 0
     }
 }
