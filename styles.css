@@ -86,7 +86,7 @@ body {
     z-index: 1;
     overflow: hidden;
     pointer-events: none;
-    opacity: .42;
+    opacity: .62;
     background: radial-gradient(ellipse at 50% 0%, rgba(10, 132, 255, .06), transparent 52%);
 }
 
@@ -94,28 +94,25 @@ body {
     position: absolute;
     top: var(--star-y);
     left: var(--star-x);
-    width: 3px;
-    height: 3px;
-    border-radius: 50%;
-    background: #9dceff;
-    box-shadow: 0 0 10px 2px rgba(10, 132, 255, .65);
-    filter: blur(1.2px);
-    opacity: .35;
+    width: 7px;
+    height: 7px;
+    background: #eaf6ff;
+    clip-path: polygon(50% 0%, 61% 39%, 100% 50%, 61% 61%, 50% 100%, 39% 61%, 0% 50%, 39% 39%);
+    box-shadow: 0 0 12px 3px rgba(10, 132, 255, .72);
+    opacity: .56;
     animation: starFlight var(--star-duration) linear var(--star-delay) infinite;
 }
 
 .star:nth-child(3n) {
-    width: 5px;
-    height: 5px;
-    opacity: .22;
-    filter: blur(2px);
+    width: 11px;
+    height: 11px;
+    opacity: .38;
 }
 
 .star:nth-child(4n) {
-    width: 2px;
-    height: 2px;
-    opacity: .5;
-    filter: blur(.8px);
+    width: 5px;
+    height: 5px;
+    opacity: .72;
 }
 
 @keyframes starFlight {
@@ -126,7 +123,7 @@ body {
 
     12%,
     78% {
-        opacity: .45
+        opacity: .78
     }
 
     100% {
@@ -203,7 +200,7 @@ body {
 
 .hero-section {
     min-height: 720px;
-    background: #040810;
+    background: radial-gradient(ellipse at 76% 44%, rgba(10, 132, 255, .22) 0%, rgba(9, 35, 70, .76) 32%, #040810 74%);
 }
 
 .hero-layout {
@@ -223,7 +220,7 @@ body {
 }
 
 .hero-atmosphere {
-    background: radial-gradient(ellipse at 79% 47%, rgba(10, 132, 255, .16) 0%, rgba(10, 132, 255, .05) 28%, transparent 57%);
+    background: radial-gradient(ellipse at 74% 45%, rgba(10, 132, 255, .2) 0%, rgba(10, 132, 255, .08) 34%, transparent 64%);
     pointer-events: none;
 }
 
@@ -239,7 +236,7 @@ body {
     align-self: stretch;
     min-height: 660px;
     overflow: hidden;
-    background: radial-gradient(ellipse at 62% 46%, rgba(10, 132, 255, .24) 0%, rgba(10, 132, 255, .1) 30%, rgba(9, 21, 40, .62) 61%, #040810 100%);
+    background: radial-gradient(ellipse at 58% 46%, rgba(10, 132, 255, .16) 0%, rgba(9, 35, 70, .38) 38%, transparent 72%);
 }
 
 .hero-dish-image {
@@ -252,19 +249,6 @@ body {
     opacity: .9;
     filter: drop-shadow(0 18px 32px rgba(0, 0, 0, .28)) drop-shadow(0 0 36px rgba(10, 132, 255, .2));
     animation: heroImageIn 1.15s .15s both cubic-bezier(.25, .46, .45, .94);
-}
-
-.hero-media-tint {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-    background: linear-gradient(90deg, #040810 0%, rgba(4, 8, 16, .66) 12%, rgba(9, 21, 40, .08) 48%, transparent 100%), linear-gradient(180deg, rgba(4, 8, 16, .18), transparent 25%, transparent 74%, #040810 100%);
-    pointer-events: none;
-}
-
-.hero-bottom-fade {
-    background: linear-gradient(180deg, transparent, #040810);
-    pointer-events: none;
 }
 
 @keyframes heroImageIn {
@@ -321,9 +305,6 @@ body {
         height: 90%;
     }
 
-    .hero-media-tint {
-        background: linear-gradient(180deg, #040810 0%, rgba(4, 8, 16, .18) 16%, transparent 48%, #040810 100%);
-    }
 }
 
 .btn-p {
